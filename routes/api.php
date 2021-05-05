@@ -22,3 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register', [UserController::class, 'create']);
 
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/logout', [UserController::class, 'logout']);
+});
+

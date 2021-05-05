@@ -34,20 +34,29 @@ class UserController extends Controller
             'date_of_birth' => 'required|date',
             'password' => 'required|string|min:8',
         ]);
-      
+
         if($validator->fails()){
             return response(['message' => 'Validation errors', 'errors' =>  $validator->errors(), 'status' => false], 422);
         }
-      
+
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
-      
+
         $data['token'] =  $user->createToken('LocalRecruit')->accessToken;
         $data['user_data'] = $user;
-      
+
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
-      
+
+    }
+
+    public function logout(){
+        if (Auth::check()) {
+            Auth::user()->token()->revoke();
+            return response()->json(['success' => 'logout_success'], 200);
+        } else {
+            return response()->json(['error' => 'api.something_went_wrong'], 500);
+        }
     }
     /**
      * Store a newly created resource in storage.
