@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator
 
 class SportController extends Controller
 {
@@ -22,9 +23,9 @@ class SportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
