@@ -26,3 +26,5 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/logout', [UserController::class, 'logout']);
 });
 
+Route::get('/sport_name/{id}', [App\Http\Controllers\SportController::class, 'show']);
+

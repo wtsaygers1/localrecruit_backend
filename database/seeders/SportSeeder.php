@@ -27,15 +27,4 @@ class SportSeeder extends Seeder
         }
     }
 }
-                // Sport::create([
-                //     'sport_name' => 'spike ball'
-                // ]);
-                // Sport::create([
-                //     'sport_name' => 'corn hole'
-                // ]);
-                // Sport::create([
-                //     'sport_name' => 'kan jam'
-                // ]);
-                // Sport::create([
-                //     'sport_name' => 'pickleball'
-                // ]);
+

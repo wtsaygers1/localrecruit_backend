@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sport;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator
+use Illuminate\Support\Facades\Validator;
 
 class SportController extends Controller
 {
@@ -16,6 +16,10 @@ class SportController extends Controller
     public function index()
     {
         //
+    }
+
+    public function show($id){
+        return Sport::find($id); //R, individual sport
     }
 
     /**
@@ -45,10 +49,10 @@ class SportController extends Controller
      * @param  \App\Models\Sport  $sport
      * @return \Illuminate\Http\Response
      */
-    public function show(Sport $sport)
-    {
-        //
-    }
+    // public function show(Sport $sport)
+    // {
+    //
+    // }
 
     /**
      * Show the form for editing the specified resource.
