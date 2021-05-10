@@ -15,6 +15,7 @@ class Sport extends Model
     protected $fillable = [
         'name',
         'url',
-        'description'
+        'description',
+        'image_url'
     ];
 }

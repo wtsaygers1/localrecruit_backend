@@ -18,6 +18,7 @@ class CreateSportsTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('description')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }
