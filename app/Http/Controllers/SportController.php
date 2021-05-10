@@ -15,10 +15,11 @@ class SportController extends Controller
      */
     public function index()
     {
-        //
+        return Sport::all()->toArray(); //R
     }
 
-    public function show($id){
+    public function show($id)
+    {
         return Sport::find($id); //R, individual sport
     }
 
@@ -29,7 +30,14 @@ class SportController extends Controller
      */
     public function create(Request $request)
     {
+        $sport = new Sport;
+        $sport->name = $request->name;
+        $url = str_replace(' ', '', $request->name);
+        $url = strtolower($url);
+        $sport->url = $url;
+        $sport->save();
 
+        return $sport;
     }
 
     /**

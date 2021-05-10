@@ -14,17 +14,19 @@ class SportSeeder extends Seeder
      */
     public function run()
     {
-        $sport_names = [
-            'spike ball',
-            'corn hole',
-            'kan jam',
-            'pickleball'
+        $names = [
+            'Spike Ball',
+            'Corn Hole',
+            'Kan Jam',
+            'Competitive Mini Golf'
         ];
-        for($i = 0; $i<count($sport_names); $i++){
+        for ($i = 0; $i < count($names); $i++) {
             $sport = new Sport;
-            $sport->sport_name = $sport_names[$i];
+            $sport->name = $names[$i];
+            $url = str_replace(' ', '', $names[$i]);
+            $url = strtolower($url);
+            $sport->url = $url;
             $sport->save();
         }
     }
 }
-

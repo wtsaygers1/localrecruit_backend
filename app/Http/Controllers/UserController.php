@@ -15,9 +15,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return $request->user();
     }
 
     /**
@@ -27,15 +27,15 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-         $validator = Validator::make($request->all(), [
-            'first_name' =>'required|string',
-            'last_name' =>'required|string',
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
             'email' => 'required|email|max:64',
             'date_of_birth' => 'required|date',
             'password' => 'required|string|min:8',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response(['message' => 'Validation errors', 'errors' =>  $validator->errors(), 'status' => false], 422);
         }
 
@@ -47,10 +47,10 @@ class UserController extends Controller
         $data['user_data'] = $user;
 
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
-
     }
 
-    public function logout(){
+    public function logout()
+    {
         if (Auth::check()) {
             Auth::user()->token()->revoke();
             return response()->json(['success' => 'logout_success'], 200);

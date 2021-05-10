@@ -13,6 +13,8 @@ class Sport extends Model
     public $incrementing = true;
     public $timestamps = true;
     protected $fillable = [
-        'sport_name'
+        'name',
+        'url',
+        'description'
     ];
 }

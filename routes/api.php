@@ -16,15 +16,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 Route::post('/register', [UserController::class, 'create']);
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/logout', [UserController::class, 'logout']);
+    Route::get('/user', [UserController::class, 'index']);
 });
 
-Route::get('/sport_name/{id}', [App\Http\Controllers\SportController::class, 'show']);
+Route::get('/sport/{id}', [App\Http\Controllers\SportController::class, 'show']);
 
+Route::get('/sports/all', [App\Http\Controllers\SportController::class, 'index']);
