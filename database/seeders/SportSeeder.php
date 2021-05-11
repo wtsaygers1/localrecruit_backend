@@ -33,10 +33,6 @@ class SportSeeder extends Seeder
             'https://media.giphy.com/media/kcfR8c12KYjoZ8jrCK/giphy.gif',
             'https://media.giphy.com/media/U6kQzI2SzYahnAyVtt/giphy.gif',
             'https://media.giphy.com/media/f4JUFPBxrnLb1M2InN/giphy.gif'
-            // 'https://i1.wp.com/skybacherslocker.com/wp-content/uploads/2015/09/spikeball_skybacher_d.jpg',
-            // 'https://cdn.cornholeboards.us/medium/blog/blog-post/20.jpg',
-            // 'https://i2.wp.com/skybacherslocker.com/wp-content/uploads/2019/04/can_jam.jpg',
-            // 'https://lh3.googleusercontent.com/proxy/j3ebUVrsmLD4Ah0sGGDJ_uxAZy27xXRt8INwOE8quBu_huGP3o-yrLBxgw-wLlFNBs2SNgrBo15oGRmANy2NAVSccuzUkSg'
         ];
         for ($i = 0; $i < count($names); $i++) {
             $sport = new Sport;
